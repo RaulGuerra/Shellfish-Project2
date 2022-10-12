@@ -311,7 +311,7 @@
 #define KVMFLAGS "-enable-kvm -M pc,kernel_irqchip=off"
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(d7cac6c)"
+#define RELEASE "1.0.3-git(2e69b36)"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"
