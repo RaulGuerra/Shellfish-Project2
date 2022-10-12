@@ -24,6 +24,7 @@ Application::Application(int argc, char **argv)
     m_parser.registerFlag('h', "help", "show program help");
     m_parser.registerFlag('v', "version", "show program version");
     m_parser.registerFlag('d', "debug", "set log level to debug");
+    m_parser.registerFlag('l', "prioLevel", "Check priority level");    //Test to get -l working for ps
 }
 
 Application::~Application()
@@ -66,6 +67,12 @@ int Application::run()
         output(m_version);
         output("\n");
         return ExitSuccess;
+    }
+
+    //Runs when -l is applied to any command
+    if(m_arguments.get("prioLevel"))
+    {
+        output("Test\n");
     }
 
     // Enable debug logging if specified

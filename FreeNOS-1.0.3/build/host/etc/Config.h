@@ -261,11 +261,10 @@
 #define XMODIFIERS "@im=ibus"
 #define DESKTOP_SESSION "ubuntu"
 #define GTK_MODULES "gail:atk-bridge"
-#define DBUS_STARTER_BUS_TYPE "session"
 #define LOGNAME "cgnambu"
 #define XDG_SESSION_DESKTOP "ubuntu"
 #define XDG_SESSION_TYPE "wayland"
-#define SYSTEMD_EXEC_PID 1829
+#define SYSTEMD_EXEC_PID 1883
 #define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.XK7QT1"
 #define HOME "/home/cgnambu"
 #define USERNAME "cgnambu"
@@ -275,23 +274,22 @@
 #define XDG_CURRENT_DESKTOP "ubuntu:GNOME"
 #define VTE_VERSION 6800
 #define WAYLAND_DISPLAY "wayland-0"
-#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/ae1c3277_6a75_4891_8ea8_9c2ddf325fd9"
+#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/d8be5b1d_216e_43ec_834d_077257cd9500"
 #define GNOME_SETUP_DISPLAY ":1"
 #define LESSCLOSE "/usr/bin/lesspipe %s %s"
 #define XDG_SESSION_CLASS "user"
 #define TERM "xterm-256color"
 #define LESSOPEN "| /usr/bin/lesspipe %s"
 #define USER "cgnambu"
-#define GNOME_TERMINAL_SERVICE ":1.124"
+#define GNOME_TERMINAL_SERVICE ":1.247"
 #define DISPLAY ":0"
 #define SHLVL 1
 #define QT_IM_MODULE "ibus"
-#define DBUS_STARTER_ADDRESS "unix:path=/run/user/1000/bus,guid=39ee4e0509881d113e0ddeea6345f38a"
 #define XDG_RUNTIME_DIR "/run/user/1000"
 #define XDG_DATA_DIRS "/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
 #define PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
 #define GDMSESSION "ubuntu"
-#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus,guid=39ee4e0509881d113e0ddeea6345f38a"
+#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
 #define _ "/usr/bin/scons"
 #define ARCH "intel"
 #define SYSTEM "pc"
@@ -313,7 +311,7 @@
 #define KVMFLAGS "-enable-kvm -M pc,kernel_irqchip=off"
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(9c3b921)*"
+#define RELEASE "1.0.3-git(b163b13)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"
