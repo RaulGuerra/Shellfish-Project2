@@ -73,6 +73,7 @@ int Application::run()
     if(m_arguments.get("prioLevel"))
     {
         output("Test\n");
+        return ExitSuccess;
     }
 
     // Enable debug logging if specified
