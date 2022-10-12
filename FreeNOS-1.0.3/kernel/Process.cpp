@@ -35,6 +35,7 @@ Process::Process(ProcessID id, Address entry, bool privileged, const MemoryMap &
     m_privileged    = privileged;
     m_memoryContext = ZERO;
     m_kernelChannel = ZERO;
+    m_priority = 3; //Priority is set to 3 by default, as per professor
     MemoryBlock::set(&m_sleepTimer, 0, sizeof(m_sleepTimer));
 }
 
@@ -97,6 +98,21 @@ MemoryContext * Process::getMemoryContext()
     return m_memoryContext;
 }
 
+//Added by Corey, returns priority level
+int Process::getPriority()
+{
+    return m_priority;
+}
+
+//Added by Corey, sets priority level, checks that priority is between 1 and 5
+void Process::setPriority(int level)
+{
+    if(level > 0 && level <= 5)
+    {
+        m_priority = level;
+    }
+}
+
 bool Process::isPrivileged() const
 {
     return m_privileged;
@@ -106,6 +122,7 @@ void Process::setParent(ProcessID id)
 {
     m_parent = id;
 }
+
 
 Process::Result Process::wait(ProcessID id)
 {
