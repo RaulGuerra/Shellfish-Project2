@@ -257,7 +257,7 @@
 #define VERSION_SUFFIX ""
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(54cb212)"
+#define RELEASE "1.0.3-git(d7cac6c)"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"
