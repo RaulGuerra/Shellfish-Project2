@@ -26,7 +26,7 @@ ProcessList::ProcessList(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
     parser().setDescription("Output system process list");
-    parser().registerFlag('l', "PriorityList", "Print priorities in the list");
+    parser().registerFlag('l', "priority", "Print priorities in the list");
 }
 
 ProcessList::Result ProcessList::exec()
@@ -46,12 +46,6 @@ ProcessList::Result ProcessList::exec()
             ProcessClient::Info info;
 
             const ProcessClient::Result result = process.processInfo(pid, info);
-
-            //Trying to print priority level
-            int priority = process.getPriority();
-
-            const char test = char(priority);
-            //output(test);
 
             if (result == ProcessClient::Success)
             {
@@ -73,7 +67,7 @@ ProcessList::Result ProcessList::exec()
     }
 
     //If -l is present, run this
-    if (arguments().get("PriorityList"))
+    if (arguments().get("priority"))
     {
         // Print header
         out << "ID  PRIORITY  PARENT  USER GROUP STATUS     CMD\r\n";
@@ -85,12 +79,6 @@ ProcessList::Result ProcessList::exec()
 
             const ProcessClient::Result result = process.processInfo(pid, info);
 
-            //Trying to print priority level
-            int priority = process.getPriority();
-
-            const char test = char(priority);
-            //output(test);
-
             if (result == ProcessClient::Success)
             {
                 DEBUG("PID " << pid << " state = " << *info.textState);
@@ -98,7 +86,7 @@ ProcessList::Result ProcessList::exec()
                 // Output a line
                 char line[128];
                 snprintf(line, sizeof(line),
-                        "%3d %10d %7d %4d %5d %10s %32s\r\n",
+                        "%3d %9d %7d %4d %5d %10s %32s\r\n",
                         pid, info.priorityLevel, info.kernelState.parent,
                         0, 0, *info.textState, *info.command);
                 out << line;
@@ -109,6 +97,5 @@ ProcessList::Result ProcessList::exec()
         write(1, *out, out.length());
         return Success;
     }
-
-    
+    return Success;
 }
