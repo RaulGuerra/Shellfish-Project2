@@ -37,7 +37,23 @@ Scheduler::Result Scheduler::enqueue(Process *proc, bool ignoreState)
         return InvalidArgument;
     }
 
-    m_queue.push(proc);
+    //Added by Nate
+    //If prio 5, push to head normally
+    if (proc->getPriority() == 5)
+    {
+        m_queue.push(proc);
+    }
+    //If prio 1, insert at tail of queue
+    else if (proc->getPriority() == 1)
+    {
+        m_queue.pushEnd(proc);
+    }
+    //If 2-4 insert into queue by checking index prio values
+    else
+    {
+        m_queue.pushMid(proc);
+    }
+    //m_queue.push(proc);
     return Success;
 }
 
