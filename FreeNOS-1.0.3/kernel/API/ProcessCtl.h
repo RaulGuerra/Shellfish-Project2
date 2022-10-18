@@ -71,6 +71,9 @@ typedef struct ProcessInfo
 
     /** Defines the current state of the Process. */
     Process::State state;
+
+    /** Created by Corey, prof wants us to use ProcessInfo instead of getter to get priority*/
+    int priorty;
 }
 ProcessInfo;
 

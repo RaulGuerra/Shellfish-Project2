@@ -139,6 +139,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         info->id    = proc->getID();
         info->state = proc->getState();
         info->parent = proc->getParent();
+        info->priorty = proc->getPriority();
         break;
 
     case WaitPID:

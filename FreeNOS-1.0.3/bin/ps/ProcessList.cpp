@@ -87,7 +87,7 @@ ProcessList::Result ProcessList::exec()
                 char line[128];
                 snprintf(line, sizeof(line),
                         "%3d %9d %7d %4d %5d %10s %32s\r\n",
-                        pid, info.priorityLevel, info.kernelState.parent,
+                        pid, info.kernelState.priorty, info.kernelState.parent,
                         0, 0, *info.textState, *info.command);
                 out << line;
             }
