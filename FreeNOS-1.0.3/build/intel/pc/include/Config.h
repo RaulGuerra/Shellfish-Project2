@@ -249,7 +249,7 @@
 #define QEMU "qemu-system-i386"
 #define QEMUCMD "${QEMU} ${QEMUFLAGS}"
 #define QEMUFLAGS "-smp 4 -m 256 -enable-kvm -M pc,kernel_irqchip=off"
-#define SESSION_MANAGER "local/cgnambu-virtual-machine:@/tmp/.ICE-unix/1709,unix/cgnambu-virtual-machine:/tmp/.ICE-unix/1709"
+#define SESSION_MANAGER "local/cgnambu-virtual-machine:@/tmp/.ICE-unix/1792,unix/cgnambu-virtual-machine:/tmp/.ICE-unix/1792"
 #define QT_ACCESSIBILITY 1
 #define COLORTERM "truecolor"
 #define XDG_CONFIG_DIRS "/etc/xdg/xdg-ubuntu:/etc/xdg"
@@ -261,11 +261,12 @@
 #define XMODIFIERS "@im=ibus"
 #define DESKTOP_SESSION "ubuntu"
 #define GTK_MODULES "gail:atk-bridge"
+#define DBUS_STARTER_BUS_TYPE "session"
 #define LOGNAME "cgnambu"
 #define XDG_SESSION_DESKTOP "ubuntu"
 #define XDG_SESSION_TYPE "wayland"
-#define SYSTEMD_EXEC_PID 1736
-#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.NMFRT1"
+#define SYSTEMD_EXEC_PID 1792
+#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.PF10T1"
 #define HOME "/home/cgnambu"
 #define USERNAME "cgnambu"
 #define IM_CONFIG_PHASE 1
@@ -274,22 +275,23 @@
 #define XDG_CURRENT_DESKTOP "ubuntu:GNOME"
 #define VTE_VERSION 6800
 #define WAYLAND_DISPLAY "wayland-0"
-#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/d4b7cf41_e777_4183_bd2e_2732a7754c2f"
+#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/af7119c6_ee57_4398_98e8_b53d9a0c35a3"
 #define GNOME_SETUP_DISPLAY ":1"
 #define LESSCLOSE "/usr/bin/lesspipe %s %s"
 #define XDG_SESSION_CLASS "user"
 #define TERM "xterm-256color"
 #define LESSOPEN "| /usr/bin/lesspipe %s"
 #define USER "cgnambu"
-#define GNOME_TERMINAL_SERVICE ":1.122"
+#define GNOME_TERMINAL_SERVICE ":1.105"
 #define DISPLAY ":0"
 #define SHLVL 1
 #define QT_IM_MODULE "ibus"
+#define DBUS_STARTER_ADDRESS "unix:path=/run/user/1000/bus,guid=74ccbc7e83675c2f3cd13456634efbc5"
 #define XDG_RUNTIME_DIR "/run/user/1000"
 #define XDG_DATA_DIRS "/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
 #define PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
 #define GDMSESSION "ubuntu"
-#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
+#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus,guid=74ccbc7e83675c2f3cd13456634efbc5"
 #define _ "/usr/bin/scons"
 #define ARCH "intel"
 #define SYSTEM "pc"
@@ -311,7 +313,7 @@
 #define KVMFLAGS "-enable-kvm -M pc,kernel_irqchip=off"
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(e2b2a5d)*"
+#define RELEASE "1.0.3-git(24b8316)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"

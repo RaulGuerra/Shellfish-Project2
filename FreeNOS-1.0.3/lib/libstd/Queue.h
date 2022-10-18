@@ -67,6 +67,73 @@ template <class T, Size N> class Queue : public Container
     }
 
     /**
+     * Added by Nate
+     * Extra method to add proccesses into different parts of the queue depending on priority level
+     * Ex queue: [^, p1, p2, p3, p4, p5, ^] where p1 has prio of 5, and p5 has prio of 1
+     * if the new processes being added is <= the tail it will become the new tail, if its > the tail it will
+     * traverse backwards until finding a process its <= a process in the queue and be inserted
+     * 
+    */
+
+   bool pushMid(const T & item)
+   {
+        if (m_count >= N)
+        {
+            return false;
+        }
+        
+        uint cur_idx = m_tail;
+        if (*item.getPriority() <= *m_array[cur_idx].getPriority())
+        {
+            m_tail = (m_tail + 1) % N;
+            m_array[cur_idx] = item;
+            m_count++;
+        }
+        else
+        {
+            m_array[m_tail+1] = m_array[m_tail];
+            m_array[m_tail] = NULL;
+            m_tail = (m_tail + 1) % N;
+
+            for(cur_idx = m_tail - 2; cur_idx >= m_head; cur_idx--)
+            {
+                if (*item.getPriority() <= *m_array[cur_idx].getPriority())
+                {
+                    m_array[cur_idx+1] = item;
+                    m_count++;
+                    return true;
+                }
+                else
+                {
+                    m_array[cur_idx+1] = m_array[cur_idx];
+                    m_array[cur_idx] = NULL;
+                }
+                
+            }
+        
+        }
+    return true;
+   }
+
+   /**
+    * Added by Nate
+    * Insert item at tail of queue if process had priority of '1'
+   */
+    bool pushEnd(const T & item)
+    {
+        if (m_count >= N)
+        {
+            return false;
+        }
+
+        m_tail = (m_tail + 1) % N;
+        m_array[m_tail] = item;
+        m_count++;
+
+        return true;
+    }
+
+    /**
      * Remove item from the tail of the Queue.
      *
      * @return Item T
