@@ -249,7 +249,7 @@
 #define QEMU "qemu-system-i386"
 #define QEMUCMD "${QEMU} ${QEMUFLAGS}"
 #define QEMUFLAGS "-smp 4 -m 256 -enable-kvm -M pc,kernel_irqchip=off"
-#define SESSION_MANAGER "local/cgnambu-virtual-machine:@/tmp/.ICE-unix/1799,unix/cgnambu-virtual-machine:/tmp/.ICE-unix/1799"
+#define SESSION_MANAGER "local/cgnambu-virtual-machine:@/tmp/.ICE-unix/1746,unix/cgnambu-virtual-machine:/tmp/.ICE-unix/1746"
 #define QT_ACCESSIBILITY 1
 #define COLORTERM "truecolor"
 #define XDG_CONFIG_DIRS "/etc/xdg/xdg-ubuntu:/etc/xdg"
@@ -265,8 +265,8 @@
 #define LOGNAME "cgnambu"
 #define XDG_SESSION_DESKTOP "ubuntu"
 #define XDG_SESSION_TYPE "wayland"
-#define SYSTEMD_EXEC_PID 1799
-#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.PA1VT1"
+#define SYSTEMD_EXEC_PID 1746
+#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.9VKQU1"
 #define HOME "/home/cgnambu"
 #define USERNAME "cgnambu"
 #define IM_CONFIG_PHASE 1
@@ -275,23 +275,23 @@
 #define XDG_CURRENT_DESKTOP "ubuntu:GNOME"
 #define VTE_VERSION 6800
 #define WAYLAND_DISPLAY "wayland-0"
-#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/3af68a8a_ac2a_4818_beed_0e176a66012e"
+#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/cf546161_f2b9_4059_a291_572850e2e923"
 #define GNOME_SETUP_DISPLAY ":1"
 #define LESSCLOSE "/usr/bin/lesspipe %s %s"
 #define XDG_SESSION_CLASS "user"
 #define TERM "xterm-256color"
 #define LESSOPEN "| /usr/bin/lesspipe %s"
 #define USER "cgnambu"
-#define GNOME_TERMINAL_SERVICE ":1.285"
+#define GNOME_TERMINAL_SERVICE ":1.119"
 #define DISPLAY ":0"
 #define SHLVL 1
 #define QT_IM_MODULE "ibus"
-#define DBUS_STARTER_ADDRESS "unix:path=/run/user/1000/bus,guid=17a588ba0369e2d1e1883f2c634f0aec"
+#define DBUS_STARTER_ADDRESS "unix:path=/run/user/1000/bus,guid=fb4cf850313e6556448838216350ac2c"
 #define XDG_RUNTIME_DIR "/run/user/1000"
 #define XDG_DATA_DIRS "/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
 #define PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
 #define GDMSESSION "ubuntu"
-#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus,guid=17a588ba0369e2d1e1883f2c634f0aec"
+#define DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus,guid=fb4cf850313e6556448838216350ac2c"
 #define _ "/usr/bin/scons"
 #define ARCH "intel"
 #define SYSTEM "pc"
@@ -313,17 +313,17 @@
 #define KVMFLAGS "-enable-kvm -M pc,kernel_irqchip=off"
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(24b8316)*"
+#define RELEASE "1.0.3-git(2967719)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"
 #define BUILDHOST "cgnambu-virtual-machine"
-#define BUILDOS "Linux 5.15.0-48-generic"
+#define BUILDOS "Linux 5.15.0-47-generic"
 #define BUILDARCH "x86_64"
 #define BUILDPY "Python 3.10.4"
 #define BUILDER "SCons 4.0.1"
-#define BUILDURL "/home/cgnambu/Git/Shellfish-Project2/FreeNOS-1.0.3"
-#define BUILDPATH "/home/cgnambu/Git/Shellfish-Project2/FreeNOS-1.0.3"
+#define BUILDURL "/home/cgnambu/Shellfish-Project2/FreeNOS-1.0.3"
+#define BUILDPATH "/home/cgnambu/Shellfish-Project2/FreeNOS-1.0.3"
 #define TESTROOT ""
 #endif
 

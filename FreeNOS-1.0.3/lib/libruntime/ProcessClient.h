@@ -96,6 +96,13 @@ class ProcessClient
     ProcessID getPriority() const;
 
     /**
+     * Set priority level, added by Corey
+     *
+     * Sets the prioriy level of a process
+     */
+    ProcessID setPriority(ProcessID, int) const;
+
+    /**
      * Get process information by its ID.
      *
      * @param pid Process identifier of the process.

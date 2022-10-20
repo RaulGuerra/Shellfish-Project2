@@ -257,17 +257,17 @@
 #define VERSION_SUFFIX ""
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(24b8316)*"
+#define RELEASE "1.0.3-git(2967719)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
 #define BUILDUSER "cgnambu"
 #define BUILDHOST "cgnambu-virtual-machine"
-#define BUILDOS "Linux 5.15.0-48-generic"
+#define BUILDOS "Linux 5.15.0-47-generic"
 #define BUILDARCH "x86_64"
 #define BUILDPY "Python 3.10.4"
 #define BUILDER "SCons 4.0.1"
-#define BUILDURL "/home/cgnambu/Git/Shellfish-Project2/FreeNOS-1.0.3"
-#define BUILDPATH "/home/cgnambu/Git/Shellfish-Project2/FreeNOS-1.0.3"
-#define TESTROOT "/home/cgnambu/Git/Shellfish-Project2/FreeNOS-1.0.3/build/host"
+#define BUILDURL "/home/cgnambu/Shellfish-Project2/FreeNOS-1.0.3"
+#define BUILDPATH "/home/cgnambu/Shellfish-Project2/FreeNOS-1.0.3"
+#define TESTROOT "/home/cgnambu/Shellfish-Project2/FreeNOS-1.0.3/build/host"
 #endif
 
