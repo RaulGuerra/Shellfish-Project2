@@ -45,7 +45,9 @@ ProcessID ProcessClient::getPriority() const
 
 ProcessID ProcessClient::setPriority(const ProcessID pid, int prio) const
 {
-    ProcessCtl(pid, SetPriority, 0);
+    ProcessInfo info;
+    info.priorty = prio;
+    ProcessCtl(pid, SetPriority, info.priorty);
     return m_priority;
 }
 

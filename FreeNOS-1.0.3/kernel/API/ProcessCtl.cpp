@@ -76,7 +76,8 @@ API::Result ProcessCtlHandler(const ProcessID procID,
 
     //Set priority level, sets priority to 4 for now
     case SetPriority:
-        procs->current()->setPriority(4);
+        proc->setPriority(addr);
+        procs->schedule();
         break;
 
     case Schedule:
