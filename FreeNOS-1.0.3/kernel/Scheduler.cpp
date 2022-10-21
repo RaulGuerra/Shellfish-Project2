@@ -36,8 +36,27 @@ Scheduler::Result Scheduler::enqueue(Process *proc, bool ignoreState)
         ERROR("process ID " << proc->getID() << " not in Ready state");
         return InvalidArgument;
     }
-
-    m_queue.push(proc);
+    switch(proc->getPriority()){
+        case 5 :
+            prio_queue_5.push(proc);
+            break;
+        case 4 :
+            prio_queue_4.push(proc);
+            break;
+        case 3 :
+            prio_queue_3.push(proc);
+            break;
+        case 2 :
+            prio_queue_2.push(proc);
+            break;
+        case 1 :
+            prio_queue_1.push(proc);
+            break;
+        default :
+            ERROR("Invalid priority level");
+            return InvalidArgument;
+    }
+    //m_queue.push(proc);
     return Success;
 }
 
@@ -49,32 +68,126 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
         return InvalidArgument;
     }
 
-    Size count = m_queue.count();
+    Size count1 = prio_queue_1.count();
+    Size count2 = prio_queue_2.count();
+    Size count3 = prio_queue_3.count();
+    Size count4 = prio_queue_4.count();
+    Size count5 = prio_queue_5.count();
 
-    // Traverse the Queue to remove the Process
-    for (Size i = 0; i < count; i++)
-    {
-        Process *p = m_queue.pop();
+    switch(proc->getPriority()){
+        case 5 :
+            for (Size i = 0; i < count5; i++)
+            {
+                Process *p = prio_queue_5.pop();
 
-        if (p == proc)
-            return Success;
-        else
-            m_queue.push(p);
+                if (p == proc)
+                    return Success;
+                else
+                    prio_queue_5.push(p);
+            }
+        case 4 :
+            for (Size i = 0; i < count4; i++)
+            {
+                Process *p = prio_queue_4.pop();
+
+                if (p == proc)
+                    return Success;
+                else
+                    prio_queue_4.push(p);
+            }
+        case 3 :
+            for (Size i = 0; i < count3; i++)
+            {
+                Process *p = prio_queue_3.pop();
+
+                if (p == proc)
+                    return Success;
+                else
+                    prio_queue_3.push(p);
+            }
+        case 2 :
+            for (Size i = 0; i < count2; i++)
+            {
+                Process *p = prio_queue_2.pop();
+
+                if (p == proc)
+                    return Success;
+                else
+                    prio_queue_2.push(p);
+            }
+        case 1 :
+            for (Size i = 0; i < count1; i++)
+            {
+                Process *p = prio_queue_1.pop();
+
+                if (p == proc)
+                    return Success;
+                else
+                    prio_queue_1.push(p);
+            }
+        default :
+            FATAL("process ID " << proc->getID() << " is not in the schedule");
+            return InvalidArgument;
     }
+    // // Traverse the Queue to remove the Process
+    // for (Size i = 0; i < count; i++)
+    // {
+    //     Process *p = m_queue.pop();
 
-    FATAL("process ID " << proc->getID() << " is not in the schedule");
-    return InvalidArgument;
+    //     if (p == proc)
+    //         return Success;
+    //     else
+    //         m_queue.push(p);
+    //}
 }
 
 Process * Scheduler::select()
 {
-    if (m_queue.count() > 0)
-    {
-        Process *p = m_queue.pop();
-        m_queue.push(p);
+    // if (prio_queue_1.count() > 0)
+    // {
+    //     Process *p = prio_queue_1.pop();
+    //     prio_queue_1.push(p);
 
-        return p;
-    }
+    //     return p;
+    // }
+    
+    // else if (prio_queue_2.count() > 0)
+    // {
+    //     Process *p = prio_queue_2.pop();
+    //     prio_queue_2.push(p);
 
+    //     return p;
+    // }
+
+    // else if (prio_queue_3.count() > 0)
+    // {
+    //     Process *p = prio_queue_3.pop();
+    //     prio_queue_3.push(p);
+        
+    //     return p;
+    // }
+
+    // else if (prio_queue_4.count() > 0)
+    // {
+    //     Process *p = prio_queue_4.pop();
+    //     prio_queue_4.push(p);
+
+    //     return p;
+    // }
+
+    // else if (prio_queue_5.count() > 0)
+    // {
+    //     Process *p = prio_queue_5.pop();
+    //     prio_queue_5.push(p);
+
+    //     return p;
+    // }
+    // if (m_queue.count() > 0)
+    // {
+    //         Process *p = m_queue.pop();
+    //         m_queue.push(p);
+
+    //         return p;
+    // }
     return (Process *) NULL;
 }

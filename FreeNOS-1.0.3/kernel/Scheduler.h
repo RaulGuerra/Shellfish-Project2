@@ -59,6 +59,11 @@ class Scheduler
      * @return Number of processes on the schedule
      */
     Size count() const;
+    Size count1() const;
+    Size count2() const;
+    Size count3() const;
+    Size count4() const;
+    Size count5() const;
 
     /**
      * Add a Process to the run schedule.
@@ -91,6 +96,11 @@ class Scheduler
 
     /** Contains processes ready to run */
     Queue<Process *, MAX_PROCS> m_queue;
+    Queue<Process *, MAX_PROCS> prio_queue_5;
+    Queue<Process *, MAX_PROCS> prio_queue_4;
+    Queue<Process *, MAX_PROCS> prio_queue_3;
+    Queue<Process *, MAX_PROCS> prio_queue_2;
+    Queue<Process *, MAX_PROCS> prio_queue_1;
 };
 
 /**
