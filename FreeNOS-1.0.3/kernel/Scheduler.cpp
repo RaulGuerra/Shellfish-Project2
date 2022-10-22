@@ -68,12 +68,6 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
         return InvalidArgument;
     }
 
-    // Size count1 = m_queue1.count();
-    // Size count2 = m_queue2.count();
-    // Size count3 = m_queue3.count();
-    // Size count4 = m_queue4.count();
-    // Size count5 = m_queue5.count();
-
     switch(proc->getPriority()){
         case 5 :
             for (Size i = 0; i < m_queue5.count(); i++)

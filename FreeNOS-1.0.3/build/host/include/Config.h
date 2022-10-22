@@ -250,10 +250,10 @@
 #define VERSION_SUFFIX ""
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(276857f)*"
+#define RELEASE "1.0.3-git(f7b1580)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
-#define BUILDUSER "root"
+#define BUILDUSER "nclarke"
 #define BUILDHOST "os-vm"
 #define BUILDOS "Linux 5.4.0-131-generic"
 #define BUILDARCH "x86_64"

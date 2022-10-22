@@ -59,11 +59,11 @@ class Scheduler
      * @return Number of processes on the schedule
      */
     Size count() const;
-    Size count1() const;
-    Size count2() const;
-    Size count3() const;
-    Size count4() const;
-    Size count5() const;
+    // Size count1() const;
+    // Size count2() const;
+    // Size count3() const;
+    // Size count4() const;
+    // Size count5() const;
     Size total_count = m_queue1.count() + m_queue2.count() + m_queue3.count() + m_queue4.count() + m_queue5.count();
 
     /**
