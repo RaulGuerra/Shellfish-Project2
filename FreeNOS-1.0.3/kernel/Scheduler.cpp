@@ -137,7 +137,7 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
 
 Process * Scheduler::select()
 {
-    if (total_count > 0)
+    if (count() > 0)
     {
         for (Size i = 0; i < m_queue5.count(); i++)
             {
