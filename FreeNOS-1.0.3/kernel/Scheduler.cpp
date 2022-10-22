@@ -38,19 +38,19 @@ Scheduler::Result Scheduler::enqueue(Process *proc, bool ignoreState)
     }
     switch(proc->getPriority()){
         case 5 :
-            prio_queue_5.push(proc);
+            m_queue5.push(proc);
             break;
         case 4 :
-            prio_queue_4.push(proc);
+            m_queue4.push(proc);
             break;
         case 3 :
-            prio_queue_3.push(proc);
+            m_queue3.push(proc);
             break;
         case 2 :
-            prio_queue_2.push(proc);
+            m_queue2.push(proc);
             break;
         case 1 :
-            prio_queue_1.push(proc);
+            m_queue1.push(proc);
             break;
         default :
             ERROR("Invalid priority level");
@@ -68,62 +68,62 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
         return InvalidArgument;
     }
 
-    Size count1 = prio_queue_1.count();
-    Size count2 = prio_queue_2.count();
-    Size count3 = prio_queue_3.count();
-    Size count4 = prio_queue_4.count();
-    Size count5 = prio_queue_5.count();
+    // Size count1 = m_queue1.count();
+    // Size count2 = m_queue2.count();
+    // Size count3 = m_queue3.count();
+    // Size count4 = m_queue4.count();
+    // Size count5 = m_queue5.count();
 
     switch(proc->getPriority()){
         case 5 :
-            for (Size i = 0; i < count5; i++)
+            for (Size i = 0; i < m_queue5.count(); i++)
             {
-                Process *p = prio_queue_5.pop();
+                Process *p = m_queue5.pop();
 
                 if (p == proc)
                     return Success;
                 else
-                    prio_queue_5.push(p);
+                    m_queue5.push(p);
             }
         case 4 :
-            for (Size i = 0; i < count4; i++)
+            for (Size i = 0; i < m_queue4.count(); i++)
             {
-                Process *p = prio_queue_4.pop();
+                Process *p = m_queue4.pop();
 
                 if (p == proc)
                     return Success;
                 else
-                    prio_queue_4.push(p);
+                    m_queue4.push(p);
             }
         case 3 :
-            for (Size i = 0; i < count3; i++)
+            for (Size i = 0; i < m_queue3.count(); i++)
             {
-                Process *p = prio_queue_3.pop();
+                Process *p = m_queue3.pop();
 
                 if (p == proc)
                     return Success;
                 else
-                    prio_queue_3.push(p);
+                    m_queue3.push(p);
             }
         case 2 :
-            for (Size i = 0; i < count2; i++)
+            for (Size i = 0; i < m_queue2.count(); i++)
             {
-                Process *p = prio_queue_2.pop();
+                Process *p = m_queue2.pop();
 
                 if (p == proc)
                     return Success;
                 else
-                    prio_queue_2.push(p);
+                    m_queue2.push(p);
             }
         case 1 :
-            for (Size i = 0; i < count1; i++)
+            for (Size i = 0; i < m_queue1.count(); i++)
             {
-                Process *p = prio_queue_1.pop();
+                Process *p = m_queue1.pop();
 
                 if (p == proc)
                     return Success;
                 else
-                    prio_queue_1.push(p);
+                    m_queue1.push(p);
             }
         default :
             FATAL("process ID " << proc->getID() << " is not in the schedule");
@@ -143,51 +143,146 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
 
 Process * Scheduler::select()
 {
-    // if (prio_queue_1.count() > 0)
-    // {
-    //     Process *p = prio_queue_1.pop();
-    //     prio_queue_1.push(p);
+    if (total_count > 0)
+    {
+        for (Size i = 0; i < m_queue5.count(); i++)
+            {
+                Process* p = m_queue5.pop();
 
-    //     return p;
-    // }
+                switch (p->getPriority())
+                {
+                case 1:
+                    m_queue1.push(p);
+                case 2:
+                    m_queue2.push(p);
+                case 3:
+                    m_queue3.push(p);
+                case 4:
+                    m_queue4.push(p);
+                case 5:
+                    m_queue5.push(p);
+                default: break;
+                }
+            }
+
+        for (Size i = 0; i < m_queue4.count(); i++)
+            {
+                Process* p = m_queue4.pop();
+
+                switch (p->getPriority())
+                {
+                case 1:
+                    m_queue1.push(p);
+                case 2:
+                    m_queue2.push(p);
+                case 3:
+                    m_queue3.push(p);
+                case 4:
+                    m_queue4.push(p);
+                case 5:
+                    m_queue5.push(p);
+                default: break;
+                }
+            }
+        for (Size i = 0; i < m_queue3.count(); i++)
+            {
+                Process* p = m_queue3.pop();
+
+                switch (p->getPriority())
+                {
+                case 1:
+                    m_queue1.push(p);
+                case 2:
+                    m_queue2.push(p);
+                case 3:
+                    m_queue3.push(p);
+                case 4:
+                    m_queue4.push(p);
+                case 5:
+                    m_queue5.push(p);
+                default: break;
+                }
+            }
+        for (Size i = 0; i < m_queue2.count(); i++)
+            {
+                Process* p = m_queue2.pop();
+
+                switch (p->getPriority())
+                {
+                case 1:
+                    m_queue1.push(p);
+                case 2:
+                    m_queue2.push(p);
+                case 3:
+                    m_queue3.push(p);
+                case 4:
+                    m_queue4.push(p);
+                case 5:
+                    m_queue5.push(p);
+                default: break;
+                }
+            }
+        for (Size i = 0; i < m_queue1.count(); i++)
+            {
+                Process* p = m_queue1.pop();
+
+                switch (p->getPriority())
+                {
+                case 1:
+                    m_queue1.push(p);
+                case 2:
+                    m_queue2.push(p);
+                case 3:
+                    m_queue3.push(p);
+                case 4:
+                    m_queue4.push(p);
+                case 5:
+                    m_queue5.push(p);
+                default: break;
+                }
+            }
+
+
+        if (m_queue5.count() > 0)
+        {
+            Process *p = m_queue5.pop();
+            m_queue5.push(p);
+
+            return p;
+        }
+
+        else if (m_queue4.count() > 0)
+        {
+            Process *p = m_queue4.pop();
+            m_queue4.push(p);
+
+            return p;
+        }
+
+        else if (m_queue3.count() > 0)
+        {
+            Process *p = m_queue3.pop();
+            m_queue3.push(p);
+
+            return p;
+        }
+
+        else if (m_queue2.count() > 0)
+        {
+            Process *p = m_queue2.pop();
+            m_queue2.push(p);
+
+            return p;
+        }
+
+        else if (m_queue1.count() > 0)
+        {
+            Process *p = m_queue1.pop();
+            m_queue1.push(p);
+
+            return p;
+        }
+    }
     
-    // else if (prio_queue_2.count() > 0)
-    // {
-    //     Process *p = prio_queue_2.pop();
-    //     prio_queue_2.push(p);
-
-    //     return p;
-    // }
-
-    // else if (prio_queue_3.count() > 0)
-    // {
-    //     Process *p = prio_queue_3.pop();
-    //     prio_queue_3.push(p);
-        
-    //     return p;
-    // }
-
-    // else if (prio_queue_4.count() > 0)
-    // {
-    //     Process *p = prio_queue_4.pop();
-    //     prio_queue_4.push(p);
-
-    //     return p;
-    // }
-
-    // else if (prio_queue_5.count() > 0)
-    // {
-    //     Process *p = prio_queue_5.pop();
-    //     prio_queue_5.push(p);
-
-    //     return p;
-    // }
-    // if (m_queue.count() > 0)
-    // {
-    //         Process *p = m_queue.pop();
-    //         m_queue.push(p);
-
-    //         return p;
-    // }
     return (Process *) NULL;
 }
