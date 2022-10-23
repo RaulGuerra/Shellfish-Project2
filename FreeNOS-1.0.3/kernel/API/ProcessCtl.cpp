@@ -69,6 +69,16 @@ API::Result ProcessCtlHandler(const ProcessID procID,
 
     case GetParent:
         return (API::Result) procs->current()->getParent();
+    
+    //Create get priority level
+    case GetPriority:
+        return (API::Result) procs->current()->getPriority();
+
+    //Set priority level, sets priority to 4 for now
+    case SetPriority:
+        proc->setPriority(addr);
+        procs->schedule();
+        break;
 
     case Schedule:
         procs->schedule();
@@ -135,6 +145,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         info->id    = proc->getID();
         info->state = proc->getState();
         info->parent = proc->getParent();
+        info->priorty = proc->getPriority();
         break;
 
     case WaitPID:

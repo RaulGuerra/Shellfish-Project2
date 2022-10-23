@@ -141,6 +141,20 @@ class Process
     bool isPrivileged() const;
 
     /**
+     * Get priority, added by Corey
+     * 
+     *  @return Priority level of process, 1-5
+     */
+    int getPriority();
+
+    /**
+     * Set priority, added by Corey
+     * 
+     * Sets priority to given level, to be used by renice
+     */
+    void setPriority(int);
+
+    /**
      * Compare two processes.
      *
      * @param proc Process to compare with.
@@ -272,6 +286,8 @@ class Process
 
     /** Number of wakeups received */
     Size m_wakeups;
+
+    int m_priority;
 
     /**
      * Sleep timer value.

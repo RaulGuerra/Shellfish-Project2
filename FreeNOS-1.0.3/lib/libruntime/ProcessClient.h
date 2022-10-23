@@ -66,6 +66,9 @@ class ProcessClient
 
         /** Textual state of the process */
         String textState;
+
+        /** Priority level*/
+        int priorityLevel;
     }
     Info;
 
@@ -84,6 +87,20 @@ class ProcessClient
      * @return Parent Process ID
      */
     ProcessID getParentID() const;
+
+    /**
+     * Get priority level, added by Corey
+     *
+     * @return Process Priority level
+     */
+    ProcessID getPriority() const;
+
+    /**
+     * Set priority level, added by Corey
+     *
+     * Sets the prioriy level of a process
+     */
+    ProcessID setPriority(ProcessID, int) const;
 
     /**
      * Get process information by its ID.
@@ -128,6 +145,9 @@ class ProcessClient
 
     /** Our parent process identifier */
     static const ProcessID m_parent;
+
+    /**Our Priority level*/
+    static const ProcessID m_priority;
 };
 
 /**
